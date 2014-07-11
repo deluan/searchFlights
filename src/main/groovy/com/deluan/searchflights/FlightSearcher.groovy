@@ -1,5 +1,7 @@
 package com.deluan.searchflights
 
+import groovyx.gpars.GParsPool
+
 class FlightSearcher {
 
     private List<Provider> providers
@@ -9,9 +11,17 @@ class FlightSearcher {
     }
 
     List<Flight> search(String origin, String destination) {
-        providers.collect { provider ->
-            provider.search(origin, destination)
-        }.flatten().unique().sort()
+        if (providers.empty) {
+            return []
+        }
+
+        GParsPool.withPool(providers.size()) {
+
+            providers.collectParallel { provider ->
+                provider.search(origin, destination)
+            }.flatten().unique().sort()
+
+        }
     }
 
 }
