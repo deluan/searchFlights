@@ -1,12 +1,10 @@
 Requirements
 ============
-
 - JDK 1.7
 
 
 Installation
 ============
-
 $ ./gradlew installApp
 
 This will create an image of the application in the 'dist' folder
@@ -14,8 +12,8 @@ This will create an image of the application in the 'dist' folder
 
 Running
 =======
-To execute this application you will need at least one provider data file in the current directory. See examples
-at the end of this README.
+To execute this application you will need at least one provider data file in the
+current directory. See examples at the end of this README.
 
 $ dist/bin/searchFlights -o {Origin} -d {Destination}
 
@@ -30,12 +28,12 @@ What could be better
 - More defensive programming (Validating Provider files for example)
 
 
-
 Original Coding Problem
 =======================
 
-Write a command line “Search Flights” application that takes data from three separate provider
-text files simultaneously/in parallel (see attached) with the following command line interface:
+Write a command line “Search Flights” application that takes data from three separate
+provider text files simultaneously/in parallel (see attached) with the following
+command line interface:
 
 $ searchFlights -o {Origin} -d {Destination}
 
@@ -56,8 +54,8 @@ YYC --> YYZ (6/30/2014 9:30:00 --> 6/30/2014 17:05:00) - $535.00
 YYC --> YYZ (6/30/2014 10:30:00 --> 6/30/2014 18:10:00) - $548.00
 
 2. Remove duplicate rows (yes, there are duplicate flights in the provider files).
-3. Order by two fields: “Price” as primary and “Departure Time” as secondary, both in
-ascending order.
+3. Order by two fields: “Price” as primary and “Departure Time” as secondary, both
+in ascending order.
 
 
 
